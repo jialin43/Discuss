@@ -1,5 +1,8 @@
 package cn.skycer;
 
+import cn.skycer.mapper.UserMapper;
+import cn.skycer.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,8 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexController {
+    @Autowired
+    UserMapper userMapper;
     @RequestMapping("/")
     public String index(){
+        return "index";
+    }
+    @RequestMapping("/addUser")
+    public String add(){
+        User user = new User();
+        user.setUsername("admin");
+        user.setPassword("admin123");
+        user.setNickname("管理员");
+        userMapper.insert(user);
         return "index";
     }
 
