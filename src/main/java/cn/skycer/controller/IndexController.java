@@ -1,4 +1,4 @@
-package cn.skycer;
+package cn.skycer.controller;
 
 import cn.skycer.mapper.UserMapper;
 import cn.skycer.model.User;
